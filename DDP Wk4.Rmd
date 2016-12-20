@@ -1,0 +1,49 @@
+---
+title: "DDP Wk4"
+author: "David Silbermann"
+date: "December 19, 2016"
+output: ioslides_presentation
+---
+
+
+## Slide 2
+
+For the Developing Data Products Week 4 assignment I developed a Shiny application that displays fictious points of interest in three cities, Baltimore, Boston, and New York.  Leaflet is used to map these points.
+
+## Code to generate Points of Interest
+
+To generate the fictious points of interest I use the `runif` funtion. Here's an example of the code that I used to generate the points around Boston.
+
+```{r}
+
+df <- data.frame(lat = runif(15, min = 42.3, max = 42.4),
+        lng = runif(15, min = -71.1, max = -71.0))
+
+head(df)
+```
+
+## And here's the code that I use to plot
+
+```{r, eval=FALSE}
+library(leaflet)
+
+        df %>% 
+           leaflet() %>%
+           addTiles() %>%
+           addMarkers()
+```
+
+## Sample Plot
+```{r, warning=FALSE, echo=FALSE}
+library(leaflet)
+
+        df <- data.frame(lat = runif(15, min = 42.3, max = 42.4),
+                lng = runif(15, min = -71.1, max = -71.0))
+
+        df %>% 
+           leaflet() %>%
+           addTiles() %>%
+           addMarkers()
+```
+
+
